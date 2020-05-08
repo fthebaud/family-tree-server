@@ -5,6 +5,5 @@ export function findAll() {
     collection.find({}).toArray((err: any, results: any) => {
         if (err) throw err;
         console.log("find all", results);
-        process.exit()
     });
 }
