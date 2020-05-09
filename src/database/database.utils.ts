@@ -1,5 +1,6 @@
-import {HOST, DB} from './database.config'
 import mongoose from 'mongoose'
+
+import {HOST, DB} from './database.config'
 
 export function connnectToDatabase () {
     // Connect to mongodb server using mongoose

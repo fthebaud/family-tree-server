@@ -1,7 +1,9 @@
+import mongoose from 'mongoose'
+
+import data from '../data/stark-family.json'
+
 import {connnectToDatabase} from './database/database.utils'
 import {createPerson, getPersons} from './database/Person/Person.service'
-import data from '../data/stark-family.json'
-import mongoose from 'mongoose'
 
 async function main () {
     console.log('--- CONNECT TO DATABASE ---')

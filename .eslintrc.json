@@ -48,6 +48,21 @@
                 "max": 70,
                 "skipComments": true
             }
-        ]
+        ],
+
+        // IMPORT
+        // helpful errorings
+        "import/export": "error",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "import/no-cycle": "error",
+        // style guide
+        "import/first": "error",
+        "import/no-duplicates": "error",
+        "import/order": ["error", {
+            "newlines-between": "always",
+            "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+        }],
+        "import/newline-after-import": "error"
+
     }
 }

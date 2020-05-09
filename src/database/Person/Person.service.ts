@@ -1,7 +1,7 @@
 import {Person} from './Person.schema'
 import {IPerson} from './Person.interface'
 
-export function createPerson (p: IPerson) {
+export function createPerson (p: IPerson | IPerson[]) {
     return Person.create(p)
 }
 
