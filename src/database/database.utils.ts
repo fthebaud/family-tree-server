@@ -2,7 +2,7 @@ import {HOST, DB} from './database.config'
 import mongoose from 'mongoose'
 
 export function connnectToDatabase () {
-    // Connect to mongodb server
+    // Connect to mongodb server using mongoose
     mongoose.connection.on('connected', () => {
         console.log('mongoose connected')
     })

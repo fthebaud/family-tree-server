@@ -1,10 +1,12 @@
 import mongoose from 'mongoose'
-import {ObjectId} from 'mongodb'
 
-const personSchema = new mongoose.Schema({
-    _id: ObjectId,
-    firstName: String,
-    lastName: String,
-})
+const schema = new mongoose.Schema(
+    {
+        firstName: String,
+        lastName: String,
+    },
+    {
+        collection: 'Person',
+    })
 
-export const Person = mongoose.model('Persons', personSchema)
+export const Person = mongoose.model('Person', schema)
