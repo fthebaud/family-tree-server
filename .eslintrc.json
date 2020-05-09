@@ -19,6 +19,40 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "indent": ["error", 4]
+        "indent": ["error", 4],
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "ignore"
+            }
+        ],
+        "object-curly-spacing": ["error", "never"],
+        "prefer-arrow-callback": "error",
+        "no-var": "error",
+        "no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "after-used"
+            }
+        ],
+
+        // Complexity
+        "complexity": ["error", 11],
+        "max-depth": ["error", 4],
+        "max-params": ["error", 5],
+        "max-statements": ["error", 40],
+        "max-lines": ["error", 300],
+        "max-lines-per-function": [
+            "error",
+            {
+                "max": 70,
+                "skipComments": true
+            }
+        ]
     }
 }

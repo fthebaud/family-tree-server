@@ -1,21 +1,13 @@
-import { connectClient, closeClient, setDB } from './mongodb/mongoClient'
-import { findAll } from './mongodb/api'
-import { DB_NAME } from './mongodb/mongo.constant'
+import {connnectToDatabase} from './database/database.utils'
+import {getPersons} from './database/Person/Person.service'
 
-console.log('start')
+async function main () {
+    console.log('--- CONNECT TO DATABASE ---')
+    await connnectToDatabase()
 
-console.log('connect')
-connectClient()
-    .then(client => {
-        console.log('setDB')
-        const db = client.db(DB_NAME)
-        setDB(db)
+    console.log('--- TEST FETCHING DATA ---')
+    const persons = await getPersons()
+    console.log(persons)
+}
 
-        console.log('find all')
-        findAll()
-
-        console.log('close connection')
-        closeClient()
-
-        console.log('done')
-    })
+main()

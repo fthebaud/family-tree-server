@@ -15,7 +15,9 @@
     "eslint:fix": "./node_modules/.bin/eslint --fix --ext .ts --ext .js src/"
   },
   "dependencies": {
-    "mongodb": "^3.5.7"
+    "@types/mongoose": "^5.7.16",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.13"
   },
   "devDependencies": {
     "@types/mongodb": "^3.5.16",
