@@ -8,7 +8,7 @@
   "scripts": {
     "tsc": "tsc",
     "build": "npm run tsc",
-    "start:build": "node built/app.js",
+    "start:prod": "node built/app.js",
     "start:dev": "ts-node-dev src/app.ts",
     "start": "npm run start:dev",
     "eslint": "./node_modules/.bin/eslint --ext .ts --ext .js src/",
