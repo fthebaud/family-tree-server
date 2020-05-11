@@ -1,5 +1,6 @@
 import {PersonModel, PersonDocument} from './Person.schema'
 import {Person} from './Person.interface'
+import {PersonUpdate} from './PersonUpdate.interface'
 
 export async function createPerson(p: Person | Person[]): Promise<PersonDocument> {
     const pers: PersonDocument = await PersonModel.create(p)
@@ -27,4 +28,9 @@ export async function getPersonById(id: string): Promise<PersonDocument | null> 
 export async function deleteById(_id: string): Promise<number> {
     const {deletedCount} = await PersonModel.deleteOne({_id})
     return deletedCount || 0
+}
+
+export async function updateOne(persUpdate: PersonUpdate): Promise<PersonDocument | null> {
+    const updatedPerson = await PersonModel.findOneAndUpdate({_id: persUpdate._id}, persUpdate, {new: true})
+    return updatedPerson
 }

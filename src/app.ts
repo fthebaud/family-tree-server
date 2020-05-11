@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 import data from '../data/stark-family.json'
 
 import {connnectToDatabase} from './database/database.utils'
-import {createPerson, getPersons, getPersonById, deleteById} from './database/Person/Person.service'
+import {createPerson, getPersons, getPersonById, deleteById, updateOne} from './database/Person/Person.service'
 import {Person} from './database/Person/Person.interface'
 
 async function main(): Promise<boolean> {
@@ -22,6 +22,14 @@ async function main(): Promise<boolean> {
     console.log('delete first')
     const delCount = await deleteById(firtId)
     console.log('delete count', delCount)
+    console.log('update last')
+    const updated = await updateOne({
+        _id: persons[6],
+        firstName: 'toto',
+        lastName: 'updated',
+    })
+    console.log(updated)
+
     return true
 }
 
