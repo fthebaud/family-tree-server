@@ -1,12 +1,14 @@
-import {Person} from './Person.schema'
-import {IPerson} from './Person.interface'
+import {PersonModel} from './Person.schema'
+import {Person} from './Person.interface'
 
-export function createPerson(p: IPerson | IPerson[]) : Promise<IPerson> {
-    return Person.create(p)
+export async function createPerson(p: Person | Person[]): Promise<Person> {
+    const pers = await PersonModel.create(p)
+    return pers
 }
 
-export function getPersons() {
-    return Person.find((err) => {
+export async function getPersons(): Promise<Person[]> {
+    const pers = await PersonModel.find((err) => {
         if (err) throw err
     })
+    return pers
 }

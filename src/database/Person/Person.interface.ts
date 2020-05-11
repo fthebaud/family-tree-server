@@ -1,4 +1,4 @@
-export interface IPerson {
+export interface Person {
     firstName: string
     lastName: string
 }

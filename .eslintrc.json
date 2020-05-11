@@ -3,22 +3,31 @@
         "browser": true,
         "es6": true
     },
-    "extends": [
-        "standard"
-    ],
+
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
     },
+
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
+
     "plugins": [
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "import"
     ],
+
+    "extends": [
+        "standard",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+
     "rules": {
+        // ESLINT
         "indent": ["error", 4],
         "comma-dangle": [
             "error",
@@ -34,7 +43,6 @@
         "prefer-arrow-callback": "error",
         "no-var": "error",
         "no-unused-vars": "off",
-        "@typescript-eslint/no-unused-vars": ["error"],
 
         // Complexity
         "complexity": ["error", 11],
@@ -66,7 +74,15 @@
             "newlines-between": "always",
             "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
         }],
-        "import/newline-after-import": "error"
+        "import/newline-after-import": "error",
 
+        // TYPESCRIPT
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/member-delimiter-style": ["error", {
+            "multiline": {
+                "delimiter": "none",
+                "requireLast": true
+            }
+        }]
     }
 }
