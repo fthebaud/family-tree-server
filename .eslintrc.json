@@ -49,6 +49,10 @@
                 "skipComments": true
             }
         ],
+        "space-before-function-paren": ["error", {
+            "anonymous": "always",
+            "named": "never"
+        }],
 
         // IMPORT
         // helpful errorings
