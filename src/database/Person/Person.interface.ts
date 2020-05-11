@@ -1,6 +1,4 @@
-import {Document} from 'mongoose'
-
-export interface IPerson extends Document {
+export interface IPerson {
     firstName: string
     lastName: string
 }
