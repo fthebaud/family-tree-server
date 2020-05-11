@@ -42,7 +42,7 @@
         "object-curly-spacing": ["error", "never"],
         "prefer-arrow-callback": "error",
         "no-var": "error",
-        "no-unused-vars": "off",
+        "arrow-parens": ["error", "as-needed"],
 
         // Complexity
         "complexity": ["error", 11],

@@ -14,9 +14,9 @@ const schema = new mongoose.Schema(
         },
     },
     {
-        collection: 'Person',
+        collection: 'person',
     })
 
-interface PersonDocument extends Person, mongoose.Document {}
+export interface PersonDocument extends Person, mongoose.Document {}
 
 export const PersonModel = mongoose.model<PersonDocument>('Person', schema)
