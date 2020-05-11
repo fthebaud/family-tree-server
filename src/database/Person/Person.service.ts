@@ -23,3 +23,8 @@ export async function getPersonById(id: string): Promise<PersonDocument | null> 
     const pers = await PersonModel.findById(id)
     return pers
 }
+
+export async function deleteById(_id: string): Promise<number> {
+    const {deletedCount} = await PersonModel.deleteOne({_id})
+    return deletedCount || 0
+}

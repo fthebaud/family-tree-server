@@ -1,6 +1,9 @@
 
+## Pre-requisite
+Before Running the project, a mongo server must be running with on database (see database.config.ts for host and database name configuration)
 
-## Run MongoDB server on windows
+
+## Note: How to run MongoDB server on windows
 ```
 "C:\Program Files\MongoDB\Server\4.2\bin\mongod.exe" --dbpath="c:\DB\Mongo\data\db"
 ```
