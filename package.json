@@ -15,6 +15,9 @@
     "eslint:fix": "./node_modules/.bin/eslint --fix --ext .ts --ext .js src/"
   },
   "dependencies": {
+    "apollo-datasource": "^0.7.0",
+    "apollo-server": "^2.13.1",
+    "graphql": "^15.0.0",
     "mongoose": "^5.9.13"
   },
   "devDependencies": {

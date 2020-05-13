@@ -3,32 +3,23 @@ import mongoose from 'mongoose'
 import data from '../data/stark-family.json'
 
 import {connnectToDatabase} from './database/database.utils'
-import {createPerson, getPersons, getPersonById, deleteById, updateOne} from './database/Person/Person.service'
 import {Person} from './database/Person/Person.interface'
+import {createPerson} from './database/Person/Person.service'
+import server from './graphql/server'
 
 async function main(): Promise<boolean> {
-    console.log('--- CONNECT TO DATABASE ---')
+    console.log('--- CONNECT MONGOOSE TO DATABASE ---')
     await connnectToDatabase()
 
-    console.log('--- TEST FETCHING DATA ---')
+    console.log('--- INIT DATABASE ---')
     await mongoose.connection.dropCollection('person')
     await createPerson(data as Person[])
-    const persons = await getPersons()
-    console.log(persons)
-    console.log('first person:')
-    const firtId: string = persons[0]._id
-    const first = await getPersonById(firtId)
-    console.log(first)
-    console.log('delete first')
-    const delCount = await deleteById(firtId)
-    console.log('delete count', delCount)
-    console.log('update last')
-    const updated = await updateOne({
-        _id: persons[6],
-        firstName: 'toto',
-        lastName: 'updated',
-    })
-    console.log(updated)
+
+    console.log('--- START APOLLO SERVER ---')
+    server.listen()
+        .then(({url}: {url: string}) => {
+            console.log(`Server ready at ${url}`)
+        })
 
     return true
 }
