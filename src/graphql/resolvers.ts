@@ -1,8 +1,29 @@
+
+import {PersonDocument} from '../database/Person/Person.interface'
+
+import {PersonAPI} from './datasources/person.api'
+
+interface Context {
+    dataSources: {
+        personAPI: PersonAPI
+    }
+}
+
 export default {
     Query: {
-        persons: async (parents: any, args: any, {dataSources}: any) => {
-            const allPersons = await dataSources.personAPI.findAllPersons()
-            return allPersons
-        },
+        persons: (parent: object, args: object, {dataSources}: Context): Promise<PersonDocument[]> => dataSources.personAPI.getPersons(),
+
+        person: (parent: object, args: {id: string}, {dataSources}: Context): Promise<PersonDocument | null> => dataSources.personAPI.getPerson(args.id),
+    },
+
+    Mutation: {
+        createPerson: async (parent: object, args: {firstName: string; lastName: string}, {dataSources}: Context): Promise<PersonDocument> =>
+            dataSources.personAPI.createPerson(args.firstName, args.lastName),
+
+        updatePerson: async (parent: object, args: {id: string; firstName: string; lastName: string}, {dataSources}: Context): Promise<PersonDocument | null> =>
+            dataSources.personAPI.updatePerson(args.id, args.firstName, args.lastName),
+
+        deletePerson: async (parent: object, args: {id: string}, {dataSources}: Context): Promise<boolean> =>
+            dataSources.personAPI.deletePerson(args.id),
     },
 }

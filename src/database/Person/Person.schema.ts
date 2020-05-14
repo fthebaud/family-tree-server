@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-import {Person} from './Person.interface'
+import {PersonDocument} from './Person.interface'
 
 const schema = new mongoose.Schema(
     {
@@ -16,7 +16,5 @@ const schema = new mongoose.Schema(
     {
         collection: 'person',
     })
-
-export interface PersonDocument extends Person, mongoose.Document {}
 
 export const PersonModel = mongoose.model<PersonDocument>('Person', schema)
