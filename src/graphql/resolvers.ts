@@ -11,9 +11,11 @@ interface Context {
 
 export default {
     Query: {
-        persons: (parent: object, args: object, {dataSources}: Context): Promise<PersonDocument[]> => dataSources.personAPI.getPersons(),
+        persons: (parent: object, args: {page: number; pageSize: number}, {dataSources}: Context): Promise<PersonDocument[]> =>
+            dataSources.personAPI.getPersons(args.page, args.pageSize),
 
-        person: (parent: object, args: {id: string}, {dataSources}: Context): Promise<PersonDocument | null> => dataSources.personAPI.getPerson(args.id),
+        person: (parent: object, args: {id: string}, {dataSources}: Context): Promise<PersonDocument | null> =>
+            dataSources.personAPI.getPerson(args.id),
     },
 
     Mutation: {

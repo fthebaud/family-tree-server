@@ -5,7 +5,16 @@ export default gql`
         """
             Insert documentation here
         """
-        persons: [Person]!
+        persons(
+            """
+            Page number
+            """
+            page: Int
+            """
+            Page size
+            """
+            pageSize: Int
+        ): [Person]!
         person(id: ID!): Person
     }
 

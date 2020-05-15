@@ -9,9 +9,11 @@ export class PersonAPI extends DataSource {
     *    We are not doing directly "return PersonModel.find()" or "return PersonModel.findById()" Because they return a query object, wich is a "thenable".
     *    We need to trigger the execution of the query by using await in order to get the result (a document or a list of documents)
     */
-    async getPersons(): Promise<PersonDocument[]> {
+    async getPersons(page = 0, pageSize = 4): Promise<PersonDocument[]> {
         const pers = await PersonModel.find()
-        return pers
+        // super cheap pagination
+        const res = pers.slice(page * pageSize, page * pageSize + pageSize)
+        return res
     }
 
     async getPerson(id: string): Promise<PersonDocument | null> {

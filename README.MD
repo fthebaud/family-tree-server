@@ -20,10 +20,7 @@ Create and manage your database and collections by using either
 
 
 # TODO
-- pagination
-- filter
 - sort
 - authentication (passeport.js)
 - subscription
-- API versionning
 - cache
